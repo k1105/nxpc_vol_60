@@ -1,9 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import Scene from "../components/Scene";
 
 export default function Home() {
+  const noticePanel = useRef<HTMLDivElement>(null);
   return (
     <div>
       <Head>
@@ -14,8 +15,34 @@ export default function Home() {
 
       <main>
         <div id="root">
+          <div
+            ref={noticePanel}
+            style={{
+              color: "white",
+              position: "fixed",
+              top: "50vh",
+              left: "0",
+              width: "100vw",
+              textAlign: "center",
+              zIndex: "10",
+            }}
+          >
+            <p
+              style={{
+                width: "300px",
+                height: "100px",
+                lineHeight: "100px",
+                background: "gray",
+                borderRadius: "10px",
+                margin: "0 auto",
+                opacity: "0.9",
+              }}
+            >
+              スクロールで前に進みます。
+            </p>
+          </div>
           <Canvas>
-            <Scene />
+            <Scene noticePanel={noticePanel} />
           </Canvas>
         </div>
       </main>
