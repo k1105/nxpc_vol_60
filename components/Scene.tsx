@@ -11,6 +11,9 @@ export default function Scene() {
   const planeRef = useRef(null);
   let closeState = false;
 
+  const offset = -9.985; //電車の先端からのカメラ距離
+  const trainLength = 18.74; //カメラの移動距離スケールにおける電車の長さ
+
   const handleScroll = () => {
     setScrollY(window.scrollY);
   };
@@ -23,11 +26,14 @@ export default function Scene() {
     window.addEventListener("scroll", handleScroll);
   }, []);
   useFrame((_, delta) => {
-    camera.position.z = -scrollY / window.innerHeight;
-    const step = Math.abs(Math.floor(camera.position.z / 19));
+    camera.position.z = -scrollY / window.innerHeight + 7;
+    const step = Math.abs(
+      Math.floor((camera.position.z + offset) / trainLength)
+    );
     const criteria = window.innerWidth > 1000 ? 0.8 : 1.5;
     //@ts-ignore
-    trainRef.current.position.set(-1, -1, -(10 + (step - 1) * 15));
+    trainRef.current.position.set(-1, -1, -((step - 1) * trainLength));
+    // trainRef.current.position.set(-1, -1, 0);
     //@ts-ignore
     if (Math.abs(planeRef.current?.position.z - camera.position.z) < criteria) {
       closeState = true;
