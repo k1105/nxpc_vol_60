@@ -4,13 +4,6 @@ import { useEffect, useState } from "react";
 import Scene from "../components/Scene";
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-  const handleScroll = () => {
-    setScrollY(window.scrollY / window.innerHeight);
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
   return (
     <div>
       <Head>
@@ -21,7 +14,6 @@ export default function Home() {
 
       <main>
         <div id="root">
-          {scrollY}
           <Canvas>
             <Scene />
           </Canvas>

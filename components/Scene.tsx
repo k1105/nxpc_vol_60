@@ -6,7 +6,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 export default function Scene() {
   const { camera, gl } = useThree();
-  const [scrollY, setScrollY] = useState(0);
+  const scrollY = useRef(0);
   const trainRef = useRef(null);
   const planeRef = useRef(null);
   let closeState = false;
@@ -15,18 +15,19 @@ export default function Scene() {
   const trainLength = 18.74; //カメラの移動距離スケールにおける電車の長さ
 
   const handleScroll = () => {
-    setScrollY(window.scrollY);
+    scrollY.current = window.scrollY;
   };
 
   const logoMap = useLoader(TextureLoader, "logo_1024x1024.png");
   const alphaMap = useLoader(TextureLoader, "logo_1024x1024_alpha.png");
+  console.log(alphaMap);
 
   const model = useLoader(GLTFLoader, "gltf/wiredTexture.gltf");
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
   useFrame((_, delta) => {
-    camera.position.z = -scrollY / window.innerHeight + 7;
+    camera.position.z = -scrollY.current / window.innerHeight + 7;
     const step = Math.abs(
       Math.floor((camera.position.z + offset) / trainLength)
     );
@@ -66,7 +67,7 @@ export default function Scene() {
         <meshStandardMaterial
           alphaMap={alphaMap}
           transparent={true}
-          color={"black"}
+          color={"white"}
         />
       </mesh>
     </>
