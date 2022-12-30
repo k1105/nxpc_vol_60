@@ -1,10 +1,43 @@
 import { Canvas } from "@react-three/fiber";
 import Head from "next/head";
 import { useRef } from "react";
+import { Modal } from "../components/Modal";
 import Scene from "../components/Scene";
+import { Performer } from "../components/Performer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
   const noticePanel = useRef<HTMLDivElement>(null);
+
+  /**
+   * About
+   */
+  const aboutPanel = useRef<HTMLDivElement>(null);
+  /**
+   * Performer
+   */
+  const rekkoPanel = useRef<HTMLDivElement>(null);
+  const motivePanel = useRef<HTMLDivElement>(null);
+  const ishizukaPanel = useRef<HTMLDivElement>(null);
+  const kakiPanel = useRef<HTMLDivElement>(null);
+  const sagyou2Panel = useRef<HTMLDivElement>(null);
+  /**
+   * Information
+   */
+  const infoPanel = useRef<HTMLDivElement>(null);
+
+  const panelRefs: RefsProp = {
+    notice: noticePanel,
+    about: aboutPanel,
+    rekko: rekkoPanel,
+    motive: motivePanel,
+    ishizuka: ishizukaPanel,
+    kaki: kakiPanel,
+    sagyou2: sagyou2Panel,
+    info: infoPanel,
+  };
+
   return (
     <div>
       <Head>
@@ -16,33 +49,124 @@ export default function Home() {
       <main>
         <div id="root">
           <div
+            style={{ position: "absolute", color: "white", fontSize: "3rem" }}
+          >
+            <ul style={{ listStyle: "none" }}>
+              <li>Home</li>
+              <li>About</li>
+              <li>Performer</li>
+              <li>Timetable</li>
+            </ul>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              bottom: "10px",
+              left: "10px",
+              zIndex: "99",
+              color: "white",
+            }}
+          >
+            <ul style={{ listStyle: "auto" }}>
+              <li>
+                <FontAwesomeIcon icon={faTwitter} />
+              </li>
+            </ul>
+          </div>
+          <div
             ref={noticePanel}
             style={{
-              color: "white",
+              color: "black",
               position: "fixed",
-              top: "50vh",
+              top: "0",
               left: "0",
               width: "100vw",
+              height: "100vh",
               textAlign: "center",
               zIndex: "10",
+              display: "grid",
+              placeItems: "center",
+              fontFamily: "Noto Serif JP",
             }}
           >
             <p
               style={{
                 width: "300px",
-                height: "100px",
-                lineHeight: "100px",
-                background: "gray",
-                borderRadius: "10px",
-                margin: "0 auto",
+                height: "300px",
+                lineHeight: "30px",
+                border: "1px solid #000",
+                background: "white",
+                margin: "auto",
                 opacity: "0.9",
+                display: "grid",
+                placeItems: "center",
               }}
             >
               スクロールで前に進みます。
+              <br />
+              Scroll to proceed.
             </p>
           </div>
+          <Modal ref={aboutPanel}>
+            <>
+              CLUBTRAIN 2023今年もやります！
+              <h1>NxPC.Labとは</h1>
+              <p>
+                NxPC.Labは、クラブやライブにおけるアーティストと観客の相互作用によってもたらされる場の臨場感を拡大し、ネットへも拡散させるためのメディアテクノロジーの実現を目指した研究機関です。
+                現代のメディア体験において必要とされる対話性、参加性をデバイス、インターフェース、ネットワークといったメディアテクノロジーを駆使することで、音楽体験を拡張し、音楽空間におけるコミュニケーションをを次のステージへ導くための研究開発、イベントを実施しています。実験の場としてのイベントNxPC.Liveを中心に、レクチャーやワークショップ、ネットラジオなどの活動を行っています。
+              </p>
+            </>
+          </Modal>
+          <Performer name="裂固" text="" img="/" ref={rekkoPanel} />
+          <Performer
+            name="DJ MOTIVE"
+            text="2008年アルバム“CURE”がiTUNESのHIPHOPアルバムチャートで最高1位。2008年インディーズHIPHOPベストアルバムに選出される。12インチアナログ、REMIX、CM音楽、サウンドトラックなどコラボレーション多数。"
+            img="/"
+            ref={motivePanel}
+          />
+          <Performer
+            name="Ryu Ishizuka"
+            text="Talkboxという80'sに流行したエフェクターを用いて、チューブを口にくわえてシンセサイザーの音を送り、口の中で共鳴させて人間の声のように発声する演奏法と、音に同期した映像による視覚表現を合わせることで、新旧を織り交ぜたパフォーマンスを行う。"
+            img="/img/performer/ryu_ishizuka.jpg"
+            ref={ishizukaPanel}
+          />
+          <Performer
+            name="JACKSON Kaki"
+            text=""
+            img="/img/performer/jackson_kaki.png"
+            ref={kakiPanel}
+          />
+          <Performer
+            name="作業用BGM"
+            text="作業用BGMを演奏するグループ
+作業 (さぎょう、英語: occupation) とは、日々の生活で行われ、名付けられている一群の活動と課題であり、個人と文化によって価値と意味があたえられたものである。
+作業として音楽の演奏を行う。"
+            img="/img/performer/sagyoyo_bgm.png"
+            ref={sagyou2Panel}
+          />
+          <Modal ref={infoPanel}>
+            <>
+              <h1>お申し込み</h1>
+              <p>
+                料金：一般4,000円、学生3,500円
+                <br />
+                ※料金には樽見鉄道乗車往復分の運賃を含みます。
+                <br />
+                ※学生のお客様は、イベント当日は学生証または類似する証明書をお持ち下さい。
+                <br />
+                ※お支払いは当日現地での現金払いのみです。現金のご用意をお願いします。
+                <br />
+                ※ご乗車の際は手指の消毒と体温の測定を行います。発熱等の症状が見られる場合はご乗車をご遠慮頂くこともあります。また、マスクの着用をお願いします。
+                <br />
+                定員：45名
+                <br />
+                申し込み方法： CLUB TRAIN 2023
+                参加応募フォームに必要事項をご記入ください。先着順とさせていただきますのでお早めにお申し込みください。
+              </p>
+            </>
+          </Modal>
           <Canvas>
-            <Scene noticePanel={noticePanel} />
+            <Scene panelRefs={panelRefs} />
           </Canvas>
         </div>
       </main>
