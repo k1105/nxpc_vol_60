@@ -17,35 +17,82 @@ export const Performer = forwardRef(function Modal(
         <Image layout="fill" src={img} alt="noImage" />
       </div>
 
-      <h1>{name}</h1>
-      <p>{text}</p>
+      <div className="textContainer">
+        <div className="textWrapper">
+          <h1>{name}</h1>
+          <br />
+          <p>{text}</p>
+        </div>
+      </div>
 
       <style jsx>{`
         .imgContainer {
           position: relative;
-          margin: 0 auto;
-          width: 300px;
-          height: 300px;
+          width: 500px;
+          height: 500px;
+          margin-left: 32vw;
         }
+
+        h1 {
+          display: inline-block;
+          font-weight: 600;
+          margin: 5px 0;
+          margin-top: -30px;
+          background: linear-gradient(transparent 0%, #fff 0%);
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+        }
+
+        p {
+          display: inline;
+          margin-top: 0;
+          line-height: 0.5em;
+          background: linear-gradient(transparent 0%, #fff 0%);
+          -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+        }
+
         .container {
           font-family: "Noto Serif JP", serif;
-          color: white;
+          color: black;
           position: absolute;
-          z-index: 99;
+          z-index: 90;
           opacity: 0;
           width: 100vw;
-          padding: 0 100px;
-          padding-top: 300px;
+          padding-top: 150px;
           pointer-events: none;
+        }
+
+        .textContainer {
+          width: 40vw;
+          margin: 0 auto;
+          position: relative;
         }
 
         @media screen and (max-width: 540px) {
           .imgContainer {
-            width: 80vw;
-            height: 80vw;
+            width: 70vw;
+            height: 70vw;
+            margin: 0 auto;
           }
           .container {
-            padding: 10px;
+            padding-top: 36vh;
+          }
+          .textContainer {
+            width: 90vw;
+            margin: 0 auto;
+          }
+
+          .textWrapper {
+            position: absolute;
+            top: -3.2em;
+          }
+          h1 {
+            font-size: 1.5em;
+          }
+
+          p {
+            font-size: 0.9em;
           }
         }
       `}</style>
