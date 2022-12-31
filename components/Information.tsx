@@ -1,17 +1,30 @@
 import { forwardRef, RefObject } from "react";
 import Image from "next/image";
 
-export const About = forwardRef(function About(_, ref) {
+export const Information = forwardRef(function Information(_, ref) {
   return (
     <div ref={ref as RefObject<HTMLDivElement>} className="container">
-      <div className="imgContainer">
-        <Image layout="fill" src="/img/about/live_image.jpg" alt="noImage" />
-      </div>
-
       <div className="textContainer">
         <div className="textWrapper">
           <p>
-            大垣市から本巣市を走るローカル線の樽見鉄道の車両を丸ごと使用して、一夜限りのクラブイベント「ネオ・天国」を開催いたします。本線はイベント中、大垣-樽見駅間を往復して運行いたします。発車時刻には乗り遅れませぬよう、くれぐれもご注意、そしてクラブトレインをお楽しみください。
+            料金： 一般4,000円、学生3,500円
+            <br />
+            定員： 45名
+            <br />
+            申し込み方法：
+            <br />
+            CLUB TRAIN 2023
+            参加応募フォームに必要事項をご記入ください。先着順とさせていただきますのでお早めにお申し込みください。
+            <br />
+            <small style={{ fontSize: "0.7rem" }}>
+              ※料金には樽見鉄道乗車往復分の運賃を含みます。
+              <br />
+              ※学生のお客様は、イベント当日は学生証または類似する証明書をお持ち下さい。
+              <br />
+              ※お支払いは当日現地での現金払いのみです。現金のご用意をお願いします。
+              <br />
+              ※ご乗車の際は手指の消毒と体温の測定を行います。発熱等の症状が見られる場合はご乗車をご遠慮頂くこともあります。また、マスクの着用をお願いします。
+            </small>
           </p>
         </div>
       </div>
@@ -48,14 +61,11 @@ export const About = forwardRef(function About(_, ref) {
 
         .textContainer {
           width: 40vw;
-          margin: 0 auto;
+          margin: 20vh auto 0;
           position: relative;
         }
 
         .textWrapper {
-          position: absolute;
-          top: -5em;
-          left: -10em;
         }
 
         @media screen and (max-width: 540px) {
@@ -69,13 +79,9 @@ export const About = forwardRef(function About(_, ref) {
           }
           .textContainer {
             width: 90vw;
-            margin: 0 auto;
+            margin: 20vh auto 0;
           }
 
-          .textWrapper {
-            top: -1em;
-            left: -0.5em;
-          }
           h1 {
             font-size: 1.5em;
           }

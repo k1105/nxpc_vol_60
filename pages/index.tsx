@@ -6,6 +6,7 @@ import { Performer } from "../components/Performer";
 import { Menu } from "../components/Menu";
 import { About } from "../components/About";
 import { Seo } from "../components/Seo";
+import { Information } from "../components/Information";
 
 export default function Home() {
   const noticePanel = useRef<HTMLDivElement>(null);
@@ -113,30 +114,7 @@ export default function Home() {
             img="/img/performer/sagyoyo_bgm.png"
             ref={sagyou2Panel}
           />
-          <Modal ref={infoPanel}>
-            <>
-              <p>
-                料金： 一般4,000円、学生3,500円
-                <br />
-                定員： 45名
-                <br />
-                申し込み方法：
-                <br />
-                CLUB TRAIN 2023
-                参加応募フォームに必要事項をご記入ください。先着順とさせていただきますのでお早めにお申し込みください。
-                <br />
-                <small style={{ fontSize: "0.7rem" }}>
-                  ※料金には樽見鉄道乗車往復分の運賃を含みます。
-                  <br />
-                  ※学生のお客様は、イベント当日は学生証または類似する証明書をお持ち下さい。
-                  <br />
-                  ※お支払いは当日現地での現金払いのみです。現金のご用意をお願いします。
-                  <br />
-                  ※ご乗車の際は手指の消毒と体温の測定を行います。発熱等の症状が見られる場合はご乗車をご遠慮頂くこともあります。また、マスクの着用をお願いします。
-                </small>
-              </p>
-            </>
-          </Modal>
+          <Information ref={infoPanel} />
           <Canvas>
             <Scene panelRefs={panelRefs} scrollY={scrollY} />
           </Canvas>
