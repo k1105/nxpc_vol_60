@@ -79,7 +79,7 @@ export const Information = forwardRef(function Information(_, ref) {
           }
           .textContainer {
             width: 90vw;
-            margin: 20vh auto 0;
+            margin: 10vh auto 0;
           }
 
           h1 {
