@@ -11,7 +11,10 @@ export const Seo = ({}) => {
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:url" content="/ogp.png" />
-      <meta name="twitter:image" content="https://clubtrain2023/ogp.png" />
+      <meta
+        name="twitter:image"
+        content="https://clubtrain2023.vercel.app/ogp.png"
+      />
       <meta property="og:title" content="CLUBTRAIN2023 | NxPC.Live vol.60" />
       <meta
         property="og:site_name"
