@@ -9,7 +9,9 @@ export const Seo = ({}) => {
         name="description"
         content=" 大垣市から本巣市を走るローカル線の樽見鉄道の車両を丸ごと使用して、一夜限りのクラブイベント「ネオ・天国」を開催いたします。本線はイベント中、大垣-樽見駅間を往復して運行いたします。発車時刻には乗り遅れませぬよう、くれぐれもご注意、そしてクラブトレインをお楽しみください。"
       />
-      <meta property="og:url" content="/img/" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:url" content="/ogp.png" />
+      <meta name="twitter:image" content="https://clubtrain2023/ogp.png" />
       <meta property="og:title" content="CLUBTRAIN2023 | NxPC.Live vol.60" />
       <meta
         property="og:site_name"
