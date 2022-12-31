@@ -81,6 +81,12 @@ export const MenuContent = ({ isActive, setIsActive, scrollY }: Props) => {
           <h3>運賃</h3>
           <hr />
           <p>4,000円 (学生3,500円)+ワンドリンク付</p>
+          <a
+            className="application"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSf4TcNq2MwTpfzbMJ75BphZX2W9knVfi2-j0BsOjIxLB_oMWg/viewform"
+          >
+            お申し込みはこちら
+          </a>
         </div>
         <div className="links">
           <a href="https://twitter.com/nxpclab/" className="sns-icon">
@@ -175,6 +181,18 @@ export const MenuContent = ({ isActive, setIsActive, scrollY }: Props) => {
           position: absolute;
           right: 11px;
           top: min(7.2vw, 48px);
+        }
+
+        .application {
+          display: inline-block;
+          text-align: center;
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #000;
+          margin-top: 30px;
+          background: black;
+          color: red;
         }
 
         @media screen and (max-width: 520px) {
