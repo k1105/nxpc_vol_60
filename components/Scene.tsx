@@ -218,12 +218,8 @@ export default function Scene({ panelRefs, scrollY }: Props) {
 
   return (
     <>
-      <EffectComposer multisampling={0}>
-        {/* ... */}
-        <Noise blendFunction={BlendFunction.DIVIDE} />
-      </EffectComposer>
       {/* <directionalLight position={[0, 1, 0]} intensity={1.5} /> */}
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={1} />
       <primitive ref={trainRef} object={model.scene} position={[-1, -1, -10]} />
       {(() => {
         const meshes = [];
