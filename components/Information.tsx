@@ -1,5 +1,4 @@
 import { forwardRef, RefObject } from "react";
-import Image from "next/image";
 
 export const Information = forwardRef(function Information(_, ref) {
   return (

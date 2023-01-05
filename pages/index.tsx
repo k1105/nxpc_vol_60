@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import { useRef } from "react";
-import { Modal } from "../components/Modal";
 import Scene from "../components/Scene";
 import { Performer } from "../components/Performer";
 import { Menu } from "../components/Menu";
@@ -50,6 +49,7 @@ export default function Home() {
           <div
             ref={noticePanel}
             style={{
+              opacity: "0",
               color: "black",
               position: "fixed",
               top: "0",
@@ -71,7 +71,6 @@ export default function Home() {
                 border: "1px solid #000",
                 background: "white",
                 margin: "auto",
-                opacity: "0.9",
                 display: "grid",
                 placeItems: "center",
               }}

@@ -1,10 +1,9 @@
 import { useFrame, useThree, useLoader } from "@react-three/fiber";
-import { MutableRefObject, useEffect, useRef } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { MutableRefObject, Suspense, useEffect, useRef } from "react";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { BufferGeometry, Mesh, Material } from "three";
-import { Noise, EffectComposer } from "@react-three/postprocessing";
-import { BlendFunction } from "postprocessing";
+import { Html, useProgress } from "@react-three/drei";
+import { TrainModel } from "./TrainModel";
 
 //<Mesh<BufferGeometry, Material | Material[]>>
 
@@ -17,7 +16,7 @@ export default function Scene({ panelRefs, scrollY }: Props) {
   const offset = -9.985; //電車の先端からのカメラ距離
   const trainLength = 18.74; //カメラの移動距離スケールにおける電車の長さ
 
-  const { camera, gl } = useThree();
+  const { camera } = useThree();
   const htmlHeading = useRef(0);
   const htmlBack = useRef(0);
   const htmlLastHeading = useRef(0);
@@ -106,7 +105,26 @@ export default function Scene({ panelRefs, scrollY }: Props) {
     scrollY.current = window.scrollY;
   };
 
-  const model = useLoader(GLTFLoader, "gltf/wiredTexture.gltf");
+  function Loader() {
+    const { progress } = useProgress();
+    return (
+      <Html center>
+        <p
+          style={{
+            width: "100vw",
+            height: "100vh",
+            zIndex: "99",
+            background: "#cfffff",
+            textAlign: "center",
+            lineHeight: "100vh",
+          }}
+        >
+          loading... {progress} %
+        </p>
+      </Html>
+    );
+  }
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
@@ -126,7 +144,7 @@ export default function Scene({ panelRefs, scrollY }: Props) {
     );
     const criteria = window.innerWidth > 1000 ? 0.8 : 1.5;
     //@ts-ignore
-    trainRef.current.position.set(
+    trainRef.current?.position.set(
       -1,
       -1,
       -(Math.max(step - 1, 0) * trainLength)
@@ -217,10 +235,12 @@ export default function Scene({ panelRefs, scrollY }: Props) {
   });
 
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       {/* <directionalLight position={[0, 1, 0]} intensity={1.5} /> */}
       <ambientLight intensity={1} />
-      <primitive ref={trainRef} object={model.scene} position={[-1, -1, -10]} />
+
+      <TrainModel ref={trainRef} />
+
       {(() => {
         const meshes = [];
         for (let plane of planeArray) {
@@ -237,6 +257,6 @@ export default function Scene({ panelRefs, scrollY }: Props) {
         }
         return meshes;
       })()}
-    </>
+    </Suspense>
   );
 }
