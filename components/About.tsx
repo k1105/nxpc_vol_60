@@ -5,7 +5,11 @@ export const About = forwardRef(function About(_, ref) {
   return (
     <div ref={ref as RefObject<HTMLDivElement>} className="container">
       <div className="imgContainer">
-        <Image layout="fill" src="/img/about/live_image.jpg" alt="noImage" />
+        <img
+          src="/img/about/live_image.jpg"
+          alt="noImage"
+          style={{ width: "100%" }}
+        />
       </div>
 
       <div className="textContainer">
