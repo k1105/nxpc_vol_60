@@ -4,7 +4,7 @@ import { Ref } from "react";
 import { Mesh, BufferGeometry, Material } from "three";
 
 export const TrainModel = forwardRef(function Information(_, ref) {
-  const { nodes, materials } = useGLTF("gltf/wiredTexture.gltf");
+  const { nodes, materials } = useGLTF("draco.glb");
   return (
     <>
       <mesh
