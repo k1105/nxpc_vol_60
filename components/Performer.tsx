@@ -14,7 +14,7 @@ export const Performer = forwardRef(function Modal(
   return (
     <div ref={ref as RefObject<HTMLDivElement>} className="container">
       <div className="imgContainer">
-        <img src={img} alt="noImage" style={{ width: "100%" }} />
+        <Image src={img} alt="noImage" layout="fill" />
       </div>
 
       <div className="textContainer">
@@ -28,8 +28,8 @@ export const Performer = forwardRef(function Modal(
       <style jsx>{`
         .imgContainer {
           position: relative;
-          width: 500px;
-          height: 500px;
+          width: 450px;
+          height: 450px;
           margin-left: 32vw;
         }
 

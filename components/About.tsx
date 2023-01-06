@@ -5,11 +5,7 @@ export const About = forwardRef(function About(_, ref) {
   return (
     <div ref={ref as RefObject<HTMLDivElement>} className="container">
       <div className="imgContainer">
-        <img
-          src="/img/about/live_image.jpg"
-          alt="noImage"
-          style={{ width: "100%" }}
-        />
+        <Image src="/img/about/live_image.jpg" alt="noImage" layout="fill" />
       </div>
 
       <div className="textContainer">
@@ -23,7 +19,7 @@ export const About = forwardRef(function About(_, ref) {
       <style jsx>{`
         .imgContainer {
           position: relative;
-          width: 45vw;
+          width: 40vw;
           height: 33.75vw;
           margin: 30px auto 0;
         }
