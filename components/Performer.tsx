@@ -85,14 +85,16 @@ export const Performer = forwardRef(function Modal(
 
           .textWrapper {
             position: absolute;
-            top: -3.2em;
+            top: -5.2em;
+            font-size: 0.8rem;
           }
           h1 {
             font-size: 1.5em;
+            line-height: 1.5rem;
           }
 
           p {
-            font-size: 0.9em;
+            line-height: 1rem;
           }
         }
       `}</style>

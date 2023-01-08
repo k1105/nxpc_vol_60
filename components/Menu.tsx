@@ -104,6 +104,7 @@ export const Menu = ({ scrollY }: MenuProps) => {
           top: -100vh;
           z-index: 95;
           transition: all 0.4s;
+          overflow-y: auto;
         }
         .container.active {
           top: 0vh;

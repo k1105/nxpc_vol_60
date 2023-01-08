@@ -75,13 +75,14 @@ export const About = forwardRef(function About(_, ref) {
           .textWrapper {
             top: -1em;
             left: -0.5em;
+            line-height: 0.5rem;
           }
           h1 {
             font-size: 1.5em;
           }
 
           p {
-            font-size: 1rem;
+            font-size: 0.8rem;
           }
         }
       `}</style>

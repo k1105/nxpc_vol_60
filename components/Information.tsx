@@ -78,15 +78,12 @@ export const Information = forwardRef(function Information(_, ref) {
           }
           .textContainer {
             width: 90vw;
-            margin: 10vh auto 0;
-          }
-
-          h1 {
-            font-size: 1.5em;
+            margin: 0vh auto 0;
+            line-height: 0.8rem;
           }
 
           p {
-            font-size: 1rem;
+            font-size: 0.9rem;
           }
         }
       `}</style>
